@@ -395,10 +395,10 @@ On the  Eclipse, create a   Spring Boot project.
 
 Enter:
 Name: SpringBootSecurityJPA
-Group: org.o7planning
+Group: org.gauravs08
 Artifact: SpringBootSecurityJPA
 Description: Spring Boot +Spring Security + JPA + Remember Me.
-Package: org.o7planning.sbsecurity
+Package: org.gauravs08.sbsecurity
 
 In the next step, you need to select the technologies and libraries to be used (In this lesson, we will connect to Oracle, MySQL, SQL Server or  Postgres databases).
 Database Libraries:
@@ -414,7 +414,7 @@ OK, the Project has been created.
 
 SpringBootSecurityJpaApplication.java
 
-package org.o7planning.sbsecurity;
+package org.gauravs08.sbsecurity;
  
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -484,7 +484,7 @@ pom.xml
           
     <modelVersion>4.0.0</modelVersion>
  
-    <groupId>org.o7planning</groupId>
+    <groupId>org.gauravs08</groupId>
     <artifactId>SpringBootSecurityJPA</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -698,11 +698,11 @@ The  WebSecurityConfig class is used to configure security for the application. 
 
 WebSecurityConfig.java
 
-package org.o7planning.sbsecurity.config;
+package org.gauravs08.sbsecurity.config;
  
 import javax.sql.DataSource;
  
-import org.o7planning.sbsecurity.service.UserDetailsServiceImpl;
+import org.gauravs08.sbsecurity.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -813,7 +813,7 @@ public PersistentTokenRepository persistentTokenRepository() {
  
 AppRole.java
 
-package org.o7planning.sbsecurity.entity;
+package org.gauravs08.sbsecurity.entity;
  
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -855,7 +855,7 @@ public class AppRole {
 }
 AppUser.java
 
-package org.o7planning.sbsecurity.entity;
+package org.gauravs08.sbsecurity.entity;
  
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -919,7 +919,7 @@ public class AppUser {
 }
 UserRole.java
 
-package org.o7planning.sbsecurity.entity;
+package org.gauravs08.sbsecurity.entity;
  
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -981,13 +981,13 @@ DAO (Data Access Object) classes are ones used to access to a database, for exam
 The  AppUserDAO class is used to manipulate with the APP_USER table. It has a method for finding an user in the database corresponding to an username.
 AppUserDAO.java
 
-package org.o7planning.sbsecurity.dao;
+package org.gauravs08.sbsecurity.dao;
  
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.Query;
  
-import org.o7planning.sbsecurity.entity.AppUser;
+import org.gauravs08.sbsecurity.entity.AppUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -1016,14 +1016,14 @@ public class AppUserDAO {
 }
 AppRoleDAO.java
 
-package org.o7planning.sbsecurity.dao;
+package org.gauravs08.sbsecurity.dao;
  
 import java.util.List;
  
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
  
-import org.o7planning.sbsecurity.entity.UserRole;
+import org.gauravs08.sbsecurity.entity.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -1048,7 +1048,7 @@ public class AppRoleDAO {
 -
 WebUtils.java
 
-package org.o7planning.sbsecurity.utils;
+package org.gauravs08.sbsecurity.utils;
  
 import java.util.Collection;
  
@@ -1082,7 +1082,7 @@ public class WebUtils {
 }
 EncrytedPasswordUtils.java
 
-package org.o7planning.sbsecurity.utils;
+package org.gauravs08.sbsecurity.utils;
  
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  
@@ -1108,14 +1108,14 @@ Herein, I create the  UserDetailsServiceImpl class which implements the UserDeta
 
 UserDetailsServiceImpl.java
 
-package org.o7planning.sbsecurity.service;
+package org.gauravs08.sbsecurity.service;
  
 import java.util.ArrayList;
 import java.util.List;
  
-import org.o7planning.sbsecurity.dao.AppUserDAO;
-import org.o7planning.sbsecurity.entity.AppUser;
-import org.o7planning.sbsecurity.dao.AppRoleDAO;
+import org.gauravs08.sbsecurity.dao.AppUserDAO;
+import org.gauravs08.sbsecurity.entity.AppUser;
+import org.gauravs08.sbsecurity.dao.AppRoleDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -1167,11 +1167,11 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 10- Controllers
 MainController.java
 
-package org.o7planning.sbsecurity.controller;
+package org.gauravs08.sbsecurity.controller;
  
 import java.security.Principal;
  
-import org.o7planning.sbsecurity.utils.WebUtils;
+import org.gauravs08.sbsecurity.utils.WebUtils;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
